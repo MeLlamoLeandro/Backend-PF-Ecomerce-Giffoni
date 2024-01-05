@@ -3,16 +3,19 @@ import dotenv from "dotenv";
 
 const program = new Command();
 
-// Configura la opción --mode con valor por defecto "development"
-program.option("--prod", "Entorno de trabajo", false); //si no se pasa el argumento --prod, el valor por defecto es false
+// Configura la opción --dev con valor por defecto "produccion"
+program.option("--dev", "Entorno de trabajo", false); //si no se pasa el argumento --dev, el valor por defecto es false
 program.parse();
 
-const environment = program.opts().prod;
-export const environmentMode = environment ? "prod" : "dev";
+const environment = program.opts().dev;
+export const environmentMode = environment ? "dev" : "prod";
 
-// Carga las variables de entorno desde el archivo .env correspondiente si es true carga el .env.production sino carga el .env.development
+console.log(`Entorno de trabajo: ${environment}`);
+console.log(`Modo de ejecución: ${environmentMode}`);
+
+// Carga las variables de entorno desde el archivo .env correspondiente si es true carga el .env.development sino carga el .env.production
 dotenv.config({
-  path: environment ? "./.env.production" : "./.env.development",
+  path: environment ? "./.env.development" : "./.env.production",
 });
 
 export default {

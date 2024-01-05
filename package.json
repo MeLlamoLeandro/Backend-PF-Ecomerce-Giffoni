@@ -9,13 +9,13 @@
   },
   "scripts": {
     "start": "node ./src/app.js",
-    "start:dev": "node ./src/app.js",
-    "start:prod": "node ./src/app.js --prod",
+    "start:prod": "node ./src/app.js",
+    "start:dev": "node ./src/app.js --dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "superTest:carts": "mocha ./tests/carts.test.js",
     "superTest:products": "mocha ./tests/products.test.js",
     "superTest:sessions": "mocha ./tests/sessions.test.js",
-    "dev": "nodemon ./src/app.js"
+    "dev": "nodemon ./src/app.js --dev"
   },
   "keywords": [],
   "author": "",
