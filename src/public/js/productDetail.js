@@ -55,7 +55,7 @@ const cartAlert = async (cid) => {
   Swal.fire({
     title: "<strong>Producto agregado al carrito</strong>",
     icon: "success",
-    html: `Podes consultar los productos en el siguiente link:<a href=http://localhost:8080/carts/${cid}>Ver Carrito</a>`,
+    html: `Podes consultar los productos en el siguiente link:<a href="/carts/${cid}">Ver Carrito</a>`,
     showCloseButton: true,
     showCancelButton: false,
     confirmButtonText: "Continuar comprando",
