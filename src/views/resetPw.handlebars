@@ -1,0 +1,58 @@
+<div class="container-fluid vh-100">
+  <div class="row">
+    <h1 class="text-center fw-bold text-dark mt-4">Reset your Password</h1>
+    <div class="col-12 col-md-4"></div>
+    <div class="col-12 col-md-4">
+      <form class="p-4" id="resetForm">
+        <div class="col">
+          <label class="form-label fw-bold">Email:</label>
+          <input
+            type="email"
+            class="form-control bg-secondary text-white"
+            placeholder="Insert your email"
+            name="email"
+            id="email"
+            value="{{email}}"
+            readonly/>
+          <label class="form-label fw-bold">New Password:</label>
+          <div class="d-flex gap-3"><input
+              type="password"
+              class="form-control"
+              placeholder="Insert a new password"
+              name="password"
+              id="inputPassword"
+              required
+            />
+
+            <div
+              class="fs-7 d-flex align-items-center justify-content-center"
+              id="showPassword"
+              onclick="showPassword()"
+            ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-eye-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                <path
+                  d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="col my-3 d-flex gap-3">
+          <input type="submit" class="btn btn-success" value="Reset Password" />
+          <div class="text-danger fw-bold" id="error"></div>
+        </div>
+      </form>
+    </div>
+    <div class="col-12 col-md-4"></div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/showPw.js"></script>
+<script src="/js/resetPw.js"></script>

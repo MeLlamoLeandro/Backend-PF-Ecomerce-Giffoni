@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="bg-secondary p-2">
+      {{!-- <h1 class="text-center fw-bold text-dark mt-4">Home</h1> --}}
+      <h1 class="text-center fw-bold text-dark mt-4 bg-secondary"><<span  style="color:#f4ff80;">CODER BACKEND ECOMMERCE</span>/></h1>
+      </div>
+      <h3 class="text-start fw-bold text-dark mt-4">This is a simple ecommerce made with NodeJS, Express, Handlebars, MongoDB, Socket.io, Passport, and more...</h3>
+      <p class="text-start fw-bold text-dark mt-4 fs-2">List products</p>
+      <p>Here are some products examples you can find. Please visist our products section by click in <a href="/products">here</a></p>
+      <div class="col d-flex flex-wrap justify-content-center">
+        {{#each products.payload}}
+          <div class="col-md-4 d-flex justify-content-center">
+            <div class="card m-4" style="width: 18rem; height:450px; ">
+              <img
+                src="{{this.thumbnails}}"
+                class="card-img-top "
+                alt="{{this.title}}"
+                style="max-height:250px; object-fit: contain;"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">{{this.description}}.</p>
+                <h5>Price: ${{this.price}}</h5>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

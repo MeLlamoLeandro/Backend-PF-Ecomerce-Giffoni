@@ -1,0 +1,891 @@
+{
+	"info": {
+		"_postman_id": "32916249-d992-4db5-9eaa-11b3c3546c94",
+		"name": "App Ecommerce - PF Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28943800"
+	},
+	"item": [
+		{
+			"name": "products.router",
+			"item": [
+				{
+					"name": "api/products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/products/:pid",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/products/64f8e47dea703f7ca882cdb3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"64f8e47dea703f7ca882cdb3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/products crea_producto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": {\r\n        \"title\": \"Mochila de viaje\",\r\n        \"description\": \"Mochila de viaje espaciosa y versátil\",\r\n        \"code\": \"MV-001\",\r\n        \"price\": 49.95,\r\n        \"status\": true,\r\n        \"stock\": 22,\r\n        \"category\": \"Accesorios\",\r\n        \"thumbnails\": [\r\n            \"https://acdn.mitiendanube.com/stores/001/150/632/products/01240300014980-61-62e23a4b17fb4a9a2b16625852715023-1024-1024.webp\"\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/products/:pid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \r\n        \"title\": \"Libreta de notas\",\r\n        \"description\": \"Libreta con tapa dura y hojas en blanco\",\r\n        \"code\": \"LB-001\",\r\n        \"price\": 8.49,\r\n        \"status\": true,\r\n        \"stock\": 50,\r\n        \"category\": \"Papelería\",\r\n        \"thumbnails\": [\"https://c7.alamy.com/compes/e6y2rm/espiral-pequeno-bloc-de-notas-con-boligrafo-azul-aislado-sobre-fondo-blanco-e6y2rm.jpg\"]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/products/64f8e7a4d2b3ac04a2598f18",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"64f8e7a4d2b3ac04a2598f18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/products/:pid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/products/6590c211dc523a4ac0df775b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"products",
+								"6590c211dc523a4ac0df775b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sessions.router",
+			"item": [
+				{
+					"name": "api/sessions/login PREMIUM",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"juanperez@mail.com\",\r\n    \"password\": \"coder123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/sessions/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sessions",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/sessions/login USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"nombreapellido@mail.com\",\r\n    \"password\": \"coder123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/sessions/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sessions",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/sessions/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Juan\",\r\n    \"last_name\": \"Perez\",\r\n    \"age\": 18,\r\n    \"email\": \"juanperez@mail.com\",\r\n    \"password\": \"coder123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/sessions/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sessions",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/sessions/current",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/sessions/current",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sessions",
+								"current"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users.router",
+			"item": [
+				{
+					"name": "api/users/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/:uid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/users/juanperez@mail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"juanperez@mail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/:uid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"premium\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/juanperez@mail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"juanperez@mail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/premium/:uid",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"premium\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/premium/juanperez@mail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"premium",
+								"juanperez@mail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/:uid/documents",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileType",
+									"value": "3-document",
+									"type": "text"
+								},
+								{
+									"key": "documentType",
+									"value": "id_doc",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/documentation_example_for_upload/identificacion.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/juanperez@mail.com/documents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"juanperez@mail.com",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/reset/:token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/reset/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTkwOGZkMjFlMDRhNGU2MjA0ZTc1Y2EiLCJmaXJzdF9uYW1lIjoibGVhbmRybyIsImxhc3RfbmFtZSI6ImdpZmZvbmkiLCJlbWFpbCI6ImxlYW5kcm9naWZmb25pQGdtYWlsLmNvbSIsImFnZSI6MzgsInBhc3N3b3JkIjoiJDJiJDEwJDhKSlAzWWZHd2pBZGRZc3NZVk0zT3VkVWpwSmtuek1PNk11NFpqZHNNbDdTSGxKRG9uelUyIiwicm9sZSI6InByZW1pdW0iLCJzdGF0dXMiOnsiaWRfZG9jIjpmYWxzZSwiYWRkcmVzc19kb2MiOmZhbHNlLCJhY2NvdW50X2RvYyI6ZmFsc2V9LCJkb2N1bWVudHMiOltdLCJfX3YiOjAsImxhc3RfY29ubmVjdGlvbiI6IjIwMjQtMDEtMDNUMDI6NTc6NDguOTk2WiIsImlhdCI6MTcwNDI1MTM3NCwiZXhwIjoxNzA0MjU0OTc0fQ.vUTe3q4q1KsPvKMX-IHc2_S8F-JpEyCixgom17yXWmM",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"reset",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTkwOGZkMjFlMDRhNGU2MjA0ZTc1Y2EiLCJmaXJzdF9uYW1lIjoibGVhbmRybyIsImxhc3RfbmFtZSI6ImdpZmZvbmkiLCJlbWFpbCI6ImxlYW5kcm9naWZmb25pQGdtYWlsLmNvbSIsImFnZSI6MzgsInBhc3N3b3JkIjoiJDJiJDEwJDhKSlAzWWZHd2pBZGRZc3NZVk0zT3VkVWpwSmtuek1PNk11NFpqZHNNbDdTSGxKRG9uelUyIiwicm9sZSI6InByZW1pdW0iLCJzdGF0dXMiOnsiaWRfZG9jIjpmYWxzZSwiYWRkcmVzc19kb2MiOmZhbHNlLCJhY2NvdW50X2RvYyI6ZmFsc2V9LCJkb2N1bWVudHMiOltdLCJfX3YiOjAsImxhc3RfY29ubmVjdGlvbiI6IjIwMjQtMDEtMDNUMDI6NTc6NDguOTk2WiIsImlhdCI6MTcwNDI1MTM3NCwiZXhwIjoxNzA0MjU0OTc0fQ.vUTe3q4q1KsPvKMX-IHc2_S8F-JpEyCixgom17yXWmM"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/updatePW",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"juanperez@mail.com\",\r\n    \"name\": \"coder123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/updatePW",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"updatePW"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mail.router",
+			"item": [
+				{
+					"name": "api/mail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"juanperez@mail.com\",\r\n    \"subject\": \"ECOMMERCE - CODER BACKEND - PURCHASE\",\r\n    \"message\": \"    <div>\\r\\n        <h1>¡Gracias por tu compra!</h1>\\r\\n        <p>Estimado/a [nombre del cliente],</p>\\r\\n        <p>Te confirmamos que hemos recibido tu pedido y estamos trabajando en él. A continuación, te proporcionamos los detalles de tu compra:</p>\\r\\n        <table>\\r\\n            <thead>\\r\\n                <tr>\\r\\n                    <th>Producto</th>\\r\\n                    <th>Cantidad</th>\\r\\n                    <th>Precio unitario</th>\\r\\n                    <th>Total</th>\\r\\n                </tr>\\r\\n            </thead>\\r\\n            <tbody>\\r\\n                <tr>\\r\\n                    <td>[nombre del producto]</td>\\r\\n                    <td>[cantidad]</td>\\r\\n                    <td>[precio unitario]</td>\\r\\n                    <td>[total]</td>\\r\\n                </tr>\\r\\n                <!-- Repetir esta fila por cada producto comprado -->\\r\\n            </tbody>\\r\\n            <tfoot>\\r\\n                <tr>\\r\\n                    <td colspan=\\\"3\\\">Subtotal:</td>\\r\\n                    <td>[subtotal]</td>\\r\\n                </tr>\\r\\n                <tr>\\r\\n                    <td colspan=\\\"3\\\">Envío:</td>\\r\\n                    <td>[costo de envío]</td>\\r\\n                </tr>\\r\\n                <tr>\\r\\n                    <td colspan=\\\"3\\\">Total:</td>\\r\\n                    <td>[total]</td>\\r\\n                </tr>\\r\\n            </tfoot>\\r\\n        </table>\\r\\n        <p>Si tienes alguna pregunta o inquietud, no dudes en ponerte en contacto con nosotros.</p>\\r\\n        <p>¡Gracias de nuevo por tu compra!</p>\\r\\n    </div>\",\r\n    \"attachments\": []\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/mail/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"mail",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/mail/reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"juanperez@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/mail/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"mail",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "carts.router",
+			"item": [
+				{
+					"name": "api/carts/ crea_carrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"email\": \"juanperez@mail.com\",\r\n        \"password\": \"coder123\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/carts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/carts/ Add_Product_Carrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/carts/65779502493cbbe756d93b11/products/64f8e7ded2b3ac04a2598f24",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"65779502493cbbe756d93b11",
+								"products",
+								"64f8e7ded2b3ac04a2598f24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/carts/:uid/purchase",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/carts/6547eff1bd640f126badfe82",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"6547eff1bd640f126badfe82"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_1_producto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/carts/654948f92b4f336a8f1917ab/products/64f8e7b3d2b3ac04a2598f1b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"654948f92b4f336a8f1917ab",
+								"products",
+								"64f8e7b3d2b3ac04a2598f1b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Carrito Completo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/carts/6547cf2f3c99d50a51e8da62",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"6547cf2f3c99d50a51e8da62"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Q de producto en Carrito",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\": 30\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/carts/6500f998279e4892e52ffd45/products/64f8e813d2b3ac04a2598f30",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"6500f998279e4892e52ffd45",
+								"products",
+								"64f8e813d2b3ac04a2598f30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Carrito completo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": [\r\n        {\r\n            \"product\": \"6500e3f2462a00066dcf5be0\",\r\n            \"quantity\": 4\r\n        },\r\n        {\r\n            \"product\": \"64f8e813d2b3ac04a2598f30\",\r\n            \"quantity\": 30\r\n        },\r\n        {\r\n            \"product\": \"64f8e7f9d2b3ac04a2598f2a\",\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/carts/6500ff675c109cfd948014eb",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"6500ff675c109cfd948014eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET X ID carrito",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/carts/6500f998279e4892e52ffd45",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"6500f998279e4892e52ffd45"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "carts by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/carts/64f943db77eba1fc6b719431",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carts",
+								"64f943db77eba1fc6b719431"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "mocking.router",
+			"item": [
+				{
+					"name": "Mocking Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/mocking/mockingproducts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"mocking",
+								"mockingproducts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

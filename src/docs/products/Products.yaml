@@ -1,0 +1,300 @@
+paths:
+  /api/products/:
+    get:
+      summary: List all products
+      tags:
+        - Products
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Products"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+
+    post:
+      summary: Create a new product
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/addProduct"
+      responses:
+        "200":
+          description: Product created successfully
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal Server Error
+
+  /api/products/{pid}:
+    get:
+      summary: Get a product by id
+      tags:
+        - Products
+      parameters:
+        - name: pid
+          in: path
+          description: Product id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: "#/components/schemas/Product"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+    
+    put:
+      summary: Update a product by id
+      tags:
+        - Products
+      parameters:
+        - name: pid
+          in: path
+          description: Product id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/addProduct"
+      responses:
+        "200":
+          description: Product updated successfully
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+    delete:
+      summary: Delete a product by id
+      tags:
+        - Products
+      parameters:
+        - name: pid
+          in: path
+          description: Product id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Product deleted successfully
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+
+components:
+  schemas:
+    Products:
+      type: object
+      properties:
+        products:
+          type: object
+          properties:
+            status:
+              type: string
+              description: status of the request, success by default
+              example: success
+            payload:
+              type: array
+              items:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    description: product id
+                  title:
+                    type: string
+                    description: product title
+                  description:
+                    type: string
+                    description: product description
+                  code:
+                    type: string
+                    description: product code
+                  price:
+                    type: number
+                    description: product price
+                  status:
+                    type: boolean
+                    description: product status, true by default
+                  stock:
+                    type: integer
+                    description: product stock
+                  category:
+                    type: string
+                    description: product category
+                  thumbnails:
+                    type: array
+                    items:
+                      type: string
+                      format: uri
+                      description: product thumbnail, array of strings, [] by default
+                  
+      example:
+        _id: 64f8e7b3d2b3ac04a2598f1b
+        title: Bolígrafo recargable
+        description: Bolígrafo de tinta azul con cuerpo metálico
+        code: BG-9999
+        price: 4.5
+        status: true
+        stock: 27
+        category: Papelería
+        thumbnails:
+          [
+            "https://acdn.mitiendanube.com/stores/001/636/171/products/1161-9bfc1e95c3b9b97adc16364653749633-640-0.webp",
+          ]
+        owner: admin
+
+
+
+
+
+    Product:
+      type: object
+      properties:
+        product:
+          type: object
+          properties:
+            _id:
+              type: string
+              description: Product id
+            title:
+              type: string
+              description: Product title
+            description:
+              type: string
+              description: Product description
+            code:
+              type: string
+              description: Product code is a unique identifier
+            price:
+              type: number
+              description: Product price
+            status:
+              type: boolean
+              description: Product status, true by default
+            stock:
+              type: integer
+              description: Product stock
+            category:
+              type: string
+              description: Product category
+            thumbnails:
+              type: array
+              items:
+                type: string
+                format: uri
+                description: Product thumbnail, array of strings, [] by default
+            owner:
+              type: string
+              description: Product owner, 'admin' by default
+      example:
+        _id: 64f8e7b3d2b3ac04a2598f1b
+        title: Bolígrafo recargable
+        description: Bolígrafo de tinta azul con cuerpo metálico
+        code: BG-001
+        price: 4.5
+        status: true
+        stock: 27
+        category: Papelería
+        thumbnails:
+          [
+            "https://acdn.mitiendanube.com/stores/001/636/171/products/1161-9bfc1e95c3b9b97adc16364653749633-640-0.webp",
+          ]
+        owner: admin
+
+
+
+
+
+  requestBodies:
+    addProduct:
+      type: object
+      properties:
+        product:
+          type: object
+          title:
+            type: string
+            description: Product title
+          description:
+            type: string
+            description: Product description
+          code:
+            type: string
+            description: Product code is a unique identifier
+          price:
+            type: number
+            description: Product price
+          status:
+            type: boolean
+            description: Product status, true by default
+          stock:
+            type: number
+            description: Product stock
+          category:
+            type: string
+            description: Product category
+          thumbnails:
+            type: array
+            description: Product thumbnail, array of strings, [] by default
+          owner:
+            type: string
+            description: Product owner, 'admin' by default
+      example:
+        product:
+          title: Camiseta de algodón
+          description: Camiseta de manga corta, cómoda y transpirable
+          code: CM-9999
+          price: 19.99
+          status: true
+          stock: 50
+          category: Ropa
+          thumbnails:
+            [
+              "https://equus.vtexassets.com/arquivos/ids/227031-800-auto?v=637814174317400000&width=800&height=auto&aspect=true",
+            ]
+          owner: admin

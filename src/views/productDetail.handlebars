@@ -1,0 +1,28 @@
+<div class="container-fluid vh-100">
+    <div class="row">
+        <div class="col-md-4 offset-md-2 mt-3">
+            <img src="{{product.thumbnails}}" alt="{{product.title}}" class="img-fluid">
+        </div>
+        <div class="col-md-4 mt-3">
+            <h1 class="fs-1 fw-bold text-dark">{{product.title}}</h1>
+    
+            <p class="fs-2 fw-light text-danger">Price: <span class="fw-bold">${{product.price}}</span></p>
+           
+            <p class="fw-bold">Description: <span class="fw-light">{{product.description}}</span></p>
+            <h5>Details:</h5>
+            <ul>
+               <li>Category: {{product.category}}</li>
+                <li>Code:{{product.code}}</li>
+                <li>Available Stock: {{product.stock}}</li>
+            </ul>
+
+             <button class="btn btn-success" onclick="addProductToCart('{{product._id}}')">Add Cart (+)</button>
+             <div class="m-1">
+                <a href="/products">Back to List</a>
+             </div>
+             
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/productDetail.js"></script>

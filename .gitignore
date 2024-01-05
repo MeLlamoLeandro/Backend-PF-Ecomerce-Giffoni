@@ -1,0 +1,13 @@
+/node_modules
+consigna.txt
+.env
+.env.development
+.env.production
+.env.zip
+Products*.json
+/test ---
+/aux_files
+/src/public/uploads/documents/*.*
+/src/public/uploads/products/*.*
+/src/public/uploads/profiles/*.*
+/bck

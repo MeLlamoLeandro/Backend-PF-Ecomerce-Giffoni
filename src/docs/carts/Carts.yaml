@@ -1,0 +1,538 @@
+paths:
+  /api/carts/:
+    post:
+      summary: Create a new cart
+      tags:
+        - Carts
+      responses:
+        "201":
+          description: Cart created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Cart created successfully!
+                  id:
+                    type: string
+                    format: uuid
+                    example: "64f8e7b3d2b3ac04a2598f1b"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Bad Request
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Error! The Cart could not be created
+
+  /api/carts/{cid}:
+    get:
+      summary: Get a cart by id
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: Cart id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Cart found successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Carts"
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: The Cart does not exists
+    put:
+      summary: Update a cart by id
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: Cart id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/updateCart"
+      responses:
+        "200":
+          description: Cart updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Cart ${cid} updated successfully!
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: The Cart does not exists
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Error! The Cart could not be updated
+    delete:
+      summary: Delete a cart by id
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: Cart id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Cart ${cid} deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Cart ${cid} deleted successfully!
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: The Cart does not exists
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Error! The Cart could not be deleted
+  
+  /api/carts/{cid}/products/{pid}: 
+    post:
+      summary: Add a product to a cart
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: Cart id
+          required: true
+          schema:
+            type: string
+        - name: pid
+          in: path
+          description: Product id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/addProduct"
+      responses:
+        "200":
+          description: Product added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Product ${pid} added successfully!
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: The Cart or Product does not exists
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Error! The Product could not be added
+    put:
+      summary: Update a product in a cart
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: Cart id
+          required: true
+          schema:
+            type: string
+        - name: pid
+          in: path
+          description: Product id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/updateProduct"
+      responses:
+        "200":
+          description: Product updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Product ${pid} updated successfully!
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: The Cart or Product does not exists
+    delete:
+      summary: Delete a product from a cart
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: Cart id
+          required: true
+          schema:
+            type: string
+        - name: pid
+          in: path
+          description: Product id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Product deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Product ${pid} deleted successfully!
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: The Cart or Product does not exists
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: Error! The Product could not be deleted
+
+/api/carts/{cid}/purchase:
+    post:
+      summary: Purchase a cart
+      tags:
+        - Carts
+      parameters:
+        - name: cid
+          in: path
+          description: Cart id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/purchaseCart"
+      responses:
+        "200":
+          description: Cart purchased successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  payload:
+                    type: object
+                    properties:
+                      ticket:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                            example: "ORDER17013242263378691"
+                          amount:
+                            type: number
+                            example: 19.99
+                          purchaser:
+                            type: string
+                            example: "nombreapellido@mail.com"
+                          products:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                product:
+                                  type: string
+                                  example: "64fcf896b565cc2b930b75a2"
+                                quantity:
+                                  type: integer
+                                  example: 1
+                          status:
+                            type: string
+                            example: "Pending"
+                          _id:
+                            type: string
+                            example: "656825c29a209898a4fa56c9"
+                          purchase_datetime:
+                            type: string
+                            format: date-time
+                            example: "2023-11-30T06:03:46.340Z"
+                          __v:
+                            type: integer
+                            example: 0
+                      cart:
+                        type: object
+                        properties:
+                          _id:
+                            type: string
+                            example: "656825b79a209898a4fa56b9"
+                          products:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                product:
+                                  type: object
+                                  $ref: '#/components/schemas/Product'
+                                quantity:
+                                  type: integer
+                                  example: 1
+
+
+        "400":
+          description: Bad Request
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+
+
+components:
+  schemas:
+    Carts:
+      type: object
+      properties:
+        products:
+          type: array
+          description: List of products in the cart
+          items:
+            type: object
+            description: Product in the cart
+            properties:
+              product:
+                $ref: '#/components/schemas/Product'
+              quantity:
+                type: integer
+                description: Quantity of the product in the cart            
+              _id:
+                type: string
+                description: Product id
+      example:
+        products:
+          - product: "65680ba32bf0d3ce29b6df9c"
+            quantity: 2
+            _id: "65680ba32bf0d3ce29b6df9c"
+          - product: "65680ba32bf0d3ce29b6df9c"
+            quantity: 2
+            _id: "65680ba32bf0d3ce29b6df9c"
+        
+  requestBodies:
+    updateCart:
+      type: object
+      description: Cart object
+      properties:
+        products:
+          type: array
+          description: List of products in the cart
+          items:
+            type: object
+            description: Product in the cart
+            properties:
+              product:
+                type: string
+                description: Product id
+              quantity:
+                type: integer
+                description: Quantity of the product in the cart
+              _id:
+                type: string
+                description: Product id         
+      example:
+        products:
+          - product: "65680ba32bf0d3ce29b6df9c"
+            quantity: 2
+          - product: "65680ba32bf0d3ce29b6df9c"
+            quantity: 2
+    purchaseCart:
+      type: object
+      description: email customer object
+      properties:
+        email:
+          type: string
+          description: Customer email
+      example:
+        email: nombreapellido@mail.com
+      
+     

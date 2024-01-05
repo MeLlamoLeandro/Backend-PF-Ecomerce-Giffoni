@@ -1,0 +1,103 @@
+<div class="container-fluid">
+  <div class="row">
+    <h1 class="text-center fw-bold text-dark mt-4">Register</h1>
+    <div class="col-12 col-md-4"></div>
+    <div class="col-12 col-md-4">
+      <form class="p-4" id="registerForm">
+        <h3 class="fw-bold text-dark mt-4">Complete your information</h3>
+
+        <div class="mb-3">
+          <label class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="John"
+            name="first_name"
+            id="first_name"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Doe"
+            name="last_name"
+            id="last_name"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">E-mail</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="JohnDoe@CoderHouse.com"
+            name="email"
+            id="email"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <div class="col-6">
+            <label class="form-label">Age</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="+18"
+              name="age"
+              id="age"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="col">
+          <label class="form-label">Password</label>
+          <div class="d-flex gap-3"><input
+              type="password"
+              class="form-control"
+              placeholder="Create a password"
+              name="password"
+              id="inputPassword"
+              required
+            />
+
+            <div
+              class="fs-7 d-flex align-items-center justify-content-center"
+              id="showPassword"
+              onclick="showPassword()"
+            ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-eye-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                <path
+                  d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="col d-flex gap-3">
+          <input type="submit" class="btn btn-primary my-3" value="Register" />
+          <div class="text-danger fw-bold" id="error"></div>
+        </div>
+        <a href="/login">Already a Member? Log in here</a>
+      </form>
+    </div>
+    <div class="col col-md-4"></div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/showPw.js"></script>
+<script src="/js/register.js"></script>

@@ -1,0 +1,30 @@
+<div class="container-fluid vh-100">
+  <div class="row">
+    <h1 class="text-center fw-bold text-dark mt-4">Have you forgotten your password?</h1>
+    <div class="col-12 col-md-4"></div>
+    <div class="col-12 col-md-4">
+      <form class="p-4" id="pwforgetForm">
+        <div class="mb-3">
+          <label class="form-label fw-bold">Complete you email:</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="JohnDoe@CoderHouse.com"
+            name="email"
+            id="email"
+            required
+          />
+        </div>
+        <div class="col my-3 d-flex gap-3">
+          <input type="submit" class="btn btn-warning" value="Send Email to Reset Password" />
+          <div class="text-danger fw-bold" id="error"></div>
+        </div>
+         <p class="lead">Enter your email address. An email with instructions will be sent to you.</p>
+        <a href="/register">Not a Member Yet? Create an Account</a>
+      </form>
+    </div>
+    <div class="col-12 col-md-4"></div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/pwforget.js"></script>
