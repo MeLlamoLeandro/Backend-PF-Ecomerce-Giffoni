@@ -31,10 +31,12 @@ class ProductMongo {
     let status = products ? "success" : "error";
 
     let prevLink = products.hasPrevPage
-      ? `http://localhost:${port}/products?limit=${limit}&page=${products.prevPage}`
+      //? `http://localhost:${port}/products?limit=${limit}&page=${products.prevPage}`
+      ? `/products?limit=${limit}&page=${products.prevPage}`
       : null;
     let nextLink = products.hasNextPage
-      ? `http://localhost:${port}/products?limit=${limit}&page=${products.nextPage}`
+      //? `http://localhost:${port}/products?limit=${limit}&page=${products.nextPage}`
+      ? `/products?limit=${limit}&page=${products.nextPage}`
       : null;
 
     products = {
