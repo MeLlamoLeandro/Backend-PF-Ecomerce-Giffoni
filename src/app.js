@@ -118,7 +118,7 @@ io.on("connection", async (socket) => {
       stock: 10,
       category: "",
       thumbnails: data.thumbnails,
-      ownwer: data.owner,
+      owner: data.owner,
     };
     //creo el producto
     await productsService.addProduct(product);
