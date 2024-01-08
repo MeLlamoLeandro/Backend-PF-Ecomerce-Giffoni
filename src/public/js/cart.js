@@ -49,7 +49,7 @@ function renderProductosCarrito() {
   let salida = "";
   salida += `<table class="table">
       <tr>
-      <td colspan="5" class="text-end"><button class="btn btn-warning" onclick="vaciarCarrito('${cartExistId}')">Vaciar Carrito</button></td>
+      <td colspan="5" class="text-end"><button class="btn btn-warning" onclick="vaciarCarrito('${cartExistId}')">Empty Cart</button></td>
       <tr>`;
 
   // Recorriendo la respuesta con un bucle for
@@ -75,13 +75,13 @@ function renderProductosCarrito() {
     }
 
     salida += `<tr>
-              <td colspan="4" class="fw-bold">Total a Pagar</td>
+              <td colspan="4" class="fw-bold">Estimated Total</td>
               <td class="fw-bold">$${totalPagarCarrito()}</td>
               <td>&nbsp;</td>
               </tr>`;
     salida += `</table>`;
   } else {
-    salida = `<div class="alert alert-danger text-center" role="alert">No se agregaron Productos en el Carrito!</div>`;
+    salida = `<div class="alert alert-danger text-center" role="alert">The Cart is EMPTY</div>`;
   }
 
   document.getElementById("productos").innerHTML = salida;
