@@ -96,7 +96,7 @@ app.use("/", viewsRouter);
 
 //levanto el servidor en el puerto indicado
 const httpServer = app.listen(port, () =>
-  console.log(`Server ON - http://localhost:${port}`)
+  console.log(`Server ON - ${port}`)
 );
 //socket.io srv
 const io = new Server(httpServer);
@@ -118,9 +118,12 @@ io.on("connection", async (socket) => {
       stock: 10,
       category: "",
       thumbnails: data.thumbnails,
+      ownwer: data.owner,
     };
     //creo el producto
     await productsService.addProduct(product);
+    console.log("Product added");
+    console.log(product);
     //obtengo todos los productos nuevamente
     const products = await productsService.getAll("");
     socket.emit("realTimeProducts", products.payload);

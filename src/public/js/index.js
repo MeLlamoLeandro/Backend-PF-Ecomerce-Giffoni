@@ -2,12 +2,15 @@ console.log("cargo index.js");
 let cartExistId = "";
 let cart = {};
 let userEmail=""
+let userRole = "";
 
 // obtengo el email del usuario
 document.addEventListener("DOMContentLoaded", function () {
   const userDiv = document.querySelector(".container");
   userEmail = userDiv.dataset.userEmail;
+  userRole = userDiv.dataset.userRole;
   console.log(userEmail);
+  console.log(userRole)
 });
 
 

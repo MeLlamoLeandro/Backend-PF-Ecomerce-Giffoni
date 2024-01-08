@@ -37,13 +37,22 @@ const addProduct = () => {
   const price = document.getElementById("price").value;
   const code = document.getElementById("code").value;
   const thumbnails = document.getElementById("thumbnails").value;
+
+  let owner = "";
+  if (userRole != "admin") {
+    owner = userEmail;
+  } else {
+    owner = "admin";
+  }
   const product = {
     title: title,
     description: description,
     price: price,
     code: code,
     thumbnails: [thumbnails],
+    owner: owner,
   };
+  console.log(product);
   socket.emit("newProduct", product);
   // Limpio los campos
   document.getElementById("title").value = "";

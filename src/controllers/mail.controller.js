@@ -76,7 +76,7 @@ export const mailResetController = async (req, res) => {
 
 //send email reset password
 export const sendEmailResetPassword = async (email, token) => {
-  let link = `http://localhost:${port}/api/users/reset/${token}`;
+  let link = `http://backend-pf-ecomerce-giffoni-production.up.railway.app/api/users/reset/${token}`;
   let message = `<h1>Reset Password</h1>
     <p>Click on the following link to reset your password</p>
     <a href="${link}">${link}</a>
