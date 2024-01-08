@@ -1,21 +1,27 @@
+console.log("cargo chat.js");
 const socket = io();
 const chatBox = document.getElementById("chatBox");
 const btnSend = document.getElementById("btnSendMessage");
-//const messageLogs = document.getElementById("messageLogs");
 let user = "";
 
-const emailInput = async()=> {
-  const {value: e} = await Swal.fire({
-      title: "Welcome to Ecommerce-Chat!",
-      text: "Please enter your User. Example: JohnDoe@email.com",
-      input: "email",
-      inputLabel: "Your email address",
-      inputPlaceholder: "user@email.com"
+// obtengo el email del usuario
+document.addEventListener("DOMContentLoaded", function () {
+  const userDiv = document.querySelector(".container");
+  user = userDiv.dataset.userEmail;
+  emailInput();
+});
+
+const emailInput = async () => {
+  await Swal.fire({
+    title: "Welcome to Ecommerce-Chat!",
+    text: `Your user is ${user}`,
+    icon: "success",
   });
-  user = e;
-  socket.emit("newChatUser", user)
-}
-emailInput()
+
+  socket.emit("newChatUser", user);
+};
+
+
 
 sendMessageToSocket = () => {
   if (chatBox.value.trim().length > 0) {
